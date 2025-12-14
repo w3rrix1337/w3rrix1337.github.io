@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>сайт w3rrix1337</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #0b0b0b;
+      color: #e6e6e6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    main, .main2, .main3 {
+      max-width: 980px;
+      width: 100%;
+      margin: 0 0 18px 0;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .glow-typewriter {
+      color: white;
+      text-shadow: 0 0 5px white, 0 0 1px white;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1.5em;
+      white-space: pre;
+      display: inline-block;
+    }
+
+    .typewriter {
+      color: rgb(255, 244, 225);
+      text-shadow: 0 0 1px rgb(231, 221, 203), 0 0 1px rgb(234, 222, 201);
+      font-family: "Courier New", Courier, monospace;
+      font-size: 1em;
+      white-space: pre-wrap;
+      display: inline-block;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      margin: 0 0 8px 0;
+      color: #ffffff;
+      line-height: 1.1;
+    }
+
+    p {
+      margin: 0.6rem 0;
+      color: #d3d3d3;
+    }
+
+    a {
+      color: #7fb4ff;
+      text-decoration: none;
+      font-family: "Courier New", Courier, monospace;
+      font-weight: 600;
+    }
+    a:hover, a:focus {
+      text-decoration: underline;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(69, 34, 34, 0.1) 0px,
+        rgba(0,0,0,0.1) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      background-size: cover;
+      pointer-events: none;
+      z-index: 0;
+      animation: flicker 0.15s infinite;
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {opacity: 1;}
+      20%, 22%, 24%, 55% {opacity: 0.8;}
+    }
+
+    video {
+      background: #000;
+      border: 1px solid #202020;
+      display: block;
+      margin-top: 12px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="glow-typewriter">сайт w3rrix1337</span><br>
+    <span class="typewriter">здравствуйте.</span><br><br>
+    <span class="typewriter">у меня на компе стоит ARCH + HYPRLAND!!! в компе у меня стоит интел и инвидиа. я пользуюсь самым лучшим браузером файерфокс</span><br><br>
+    <span class="typewriter">телефон у меня естественно пиксель 6 с андроид 16</span><br><br>
+    <span class="typewriter">у меня ещё есть рыгми нот 12 который я планирую прошить в ближайшее время.</span><br>
+  </main>
+
+  <div class="main2">
+    <span class="glow-typewriter">ссылки на мои соцсети</span><br>
+    <span class="typewriter">снизу есть пару ссылок на мои соцсети:</span><br><br>
+    <a href="https://t.me/boss_devyatka">ТГ ЛС</a><br>
+    <a href="https://t.me/w3rrix1337">ТГ КАНАЛ</a><br>
+    <a href="https://github.com/w3rrix1337">ГИТХАБ</a>
+
+    <br>
+  </div>
+
+  <div class="main3">
+    <span class="glow-typewriter">интересный факт:</span><br>
+    <span class="typewriter">я фембой</span><br><br>
+
+    <br>
+  </div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.glow-typewriter').forEach(el => {
+      const fullText = el.textContent;
+      el.textContent = '';
+      let i = 0;
+
+      function type() {
+        if (i < fullText.length) {
+          el.textContent += fullText[i];
+          i++;
+          setTimeout(type, 40);
+        }
+      }
+
+      type();
+    });
+  });
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.typewriter').forEach(el => {
+      const fullText = el.textContent;
+      el.textContent = '';
+      let i = 0;
+
+      function type() {
+        if (i < fullText.length) {
+          el.textContent += fullText[i];
+          i++;
+          setTimeout(type, 4);
+        }
+      }
+
+      type();
+    });
+  });
+</script>
+
+<canvas id="retroTrail"></canvas>
+<script>
+const canvas = document.getElementById('retroTrail');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+canvas.style.position = 'absolute';
+canvas.style.top = 0;
+canvas.style.left = 0;
+canvas.style.width = '100%';
+canvas.style.height = '100%';
+canvas.style.pointerEvents = 'none';
+canvas.style.zIndex = 0;
+
+const fontSize = 8;
+const columns = Math.floor(canvas.width / fontSize);
+const drops = Array(columns).fill(0);
+
+function draw() {
+  ctx.fillStyle = 'rgba(11,11,11,0.1)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = 'white';
+  ctx.font = fontSize + "px monospace";
+
+  for(let i = 0; i < drops.length; i++){
+    ctx.fillText("•", i * fontSize, drops[i] * fontSize);
+    drops[i] += 1;
+    if(drops[i] * fontSize > canvas.height && Math.random() > 0.975){
+      drops[i] = 0;
+    }
+  }
+}
+
+setInterval(draw, 35);
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+</script>
+
+</body></html>
